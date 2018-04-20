@@ -59,9 +59,10 @@ public class LongestConsecutive {
             int right = map.containsKey(nums[i] + 1)? map.get(nums[i] + 1) : 0;
             int sum = left + right + 1;
 
+            // left 到right之间的值肯定是出现过了，所以出现连续的值应该是在左右两边，只要更新左右两边边界的值就可以
             len = Math.max(len, sum);
-            map.put(nums[i] - left, sum);
-            map.put(nums[i] + right, sum);
+            map.put(nums[i] - left, sum); // 设置边界数值的值
+            map.put(nums[i] + right, sum); // 设置边界数值的值
         }
         return len;
     }
